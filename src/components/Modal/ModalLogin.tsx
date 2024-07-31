@@ -1,6 +1,8 @@
+"use client";
 import { Box, Button, Modal, Typography } from "@mui/material";
 import React from "react";
 
+import { signIn, signOut, useSession } from "next-auth/react";
 type Props = {
   open: boolean;
   onClose: () => void;
@@ -63,6 +65,7 @@ const ModalLogin = ({ open, onClose }: Props) => {
               width: "662px",
               color: "black",
             }}
+            onClick={() => signIn("google")}
           >
             เข้าสู่ระบบด้วยบัญชี Google
           </Button>
@@ -76,6 +79,7 @@ const ModalLogin = ({ open, onClose }: Props) => {
               width: "662px",
               color: "black",
             }}
+            onClick={() => signIn("facebook")}
           >
             เข้าสู่ระบบด้วยบัญชี Facebook
           </Button>
@@ -89,6 +93,7 @@ const ModalLogin = ({ open, onClose }: Props) => {
               width: "662px",
               color: "black",
             }}
+            onClick={() => signIn("line")}
           >
             เข้าสู่ระบบด้วยบัญชี Line
           </Button>

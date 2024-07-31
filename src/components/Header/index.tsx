@@ -2,16 +2,19 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import ModalLogin from "../Modal/ModalLogin";
+import { useSession } from "next-auth/react";
 
 type Props = {};
 
 const Header = (props: Props) => {
   const [open, setOpen] = useState(false);
+  // const { data } = useSession();
+  // console.log("data: ", data);
   return (
     <Box
       sx={{
-        background:
-          "url(/static/bg/bg-header.png) no-repeat center center fixed",
+        background: "url(/static/bg/bg-header.png) no-repeat",
+        backgroundSize: "cover",
         height: "800px",
         display: "flex",
         justifyContent: "center",

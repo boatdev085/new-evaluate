@@ -7,14 +7,14 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <Box
-      padding="42px 16px"
+      padding="140px 16px 42px 16px"
       borderTop="1px solid rgb(0,0,0,0.5)"
       display="flex"
       justifyContent="center"
       flexDirection="column"
       alignItems="center"
     >
-      <Box marginBottom="40px" gap="42px" display="flex" alignItems="center">
+      {/* <Box marginBottom="40px" gap="42px" display="flex" alignItems="center">
         <Image
           src="/static/logo/logo-1.png"
           alt="logo"
@@ -33,12 +33,13 @@ const Footer = (props: Props) => {
           width={66}
           height={66}
         />
-      </Box>
+      </Box> */}
       <Typography
-        variant="body2"
+        variant="body1"
         sx={{ textAlign: "center", color: "rgb(0,0,0.0.8)" }}
       >
-        © Photo, Inc. 2019. We love our users!
+        Copyright@ 2024 CENTER FOR MORALLITY PROMOTION (CMP)(Public
+        Organization)
       </Typography>
     </Box>
   );
