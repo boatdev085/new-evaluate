@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import LineProvider from "next-auth/providers/line";
 import Facebook from "next-auth/providers/facebook";
 
-export const Options = {
+const Options = {
   providers: [
     GoogleProvider({
       name: "google",
@@ -24,6 +24,6 @@ export const Options = {
   ],
 };
 
-export const handler = NextAuth(Options);
+const handler = NextAuth(Options);
 
 export { handler as GET, handler as POST };
