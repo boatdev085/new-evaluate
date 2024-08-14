@@ -1,23 +1,28 @@
-import Header from "@/components/Header";
 import WrapperLayout from "@/components/Layout";
 import React from "react";
-import SectionVideo from "./SectionVideo";
+
 import SectionAcademic from "./SectionAcademic";
-import SectionGraph from "./SectionGraph";
+
 import Footer from "@/components/Footer";
+import Header from "./Header";
+import SectionNameList from "./SectionNameList";
+import SectionInfo from "./SectionInfo";
+import SectionChart from "./SectionChart";
 
 type Props = {};
 
 const Home = (props: Props) => {
   return (
-    <main>
+    <main style={{ background: "#8ACEFC" }}>
       <Header />
-      <WrapperLayout sx={{ marginTop: "74px" }}>
-        <SectionVideo />
-        <SectionAcademic />
-        <SectionGraph />
-        <Footer />
+      <SectionNameList />
+      <SectionAcademic />
+      <WrapperLayout sx={{ margin: "0 auto", backgroundColor: "white" }}>
+        <SectionInfo />
+        <SectionChart title="แบบประเมินการเลี้ยงดูเชิงบวก" />
+        <SectionChart title="แบบประเมินต้นทุนชีวิต" />
       </WrapperLayout>
+      <Footer />
     </main>
   );
 };

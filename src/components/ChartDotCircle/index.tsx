@@ -69,25 +69,14 @@ const option: any = {
   },
 };
 
-type Props = {};
+type Props = {
+  data?: ChartData<"radar", number[], string>;
+  option?: any;
+};
 
-const SectionGraph = (props: Props) => {
+const ChartDotCircle = (props: Props) => {
   return (
     <Box marginBottom="60px">
-      <Typography variant="h4" textAlign="center" marginBottom="26px">
-        Sed ut perspiciatis unde omnis
-      </Typography>
-      <Typography
-        variant="body2"
-        color="rgb(0,0,0,0.8)"
-        textAlign="center"
-        padding="0 200px"
-        marginBottom="80px"
-      >
-        Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut
-        fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem
-        sequi nesciunt. Neque porro quisquam est, qui dolorem.
-      </Typography>
       <Box
         width="100%"
         height="913px"
@@ -101,4 +90,4 @@ const SectionGraph = (props: Props) => {
   );
 };
 
-export default SectionGraph;
+export default ChartDotCircle;

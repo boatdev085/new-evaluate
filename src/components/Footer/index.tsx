@@ -13,6 +13,7 @@ const Footer = (props: Props) => {
       justifyContent="center"
       flexDirection="column"
       alignItems="center"
+      bgcolor={"#FFDD24"}
     >
       {/* <Box marginBottom="40px" gap="42px" display="flex" alignItems="center">
         <Image
