@@ -6,28 +6,33 @@ import dayjs from "dayjs";
 import { Typography } from "@mui/material";
 
 type Props = {
-    label?:string
-    disabled?:boolean
+  label?: string;
+  disabled?: boolean;
+  left?: boolean;
+  bgBold?: boolean;
 };
 
-const DatePickers = ({label,...props}: Props) => {
+const DatePickers = ({ label, left, bgBold, ...props }: Props) => {
   return (
     <>
-   <Typography mb={2}>{label}</Typography>
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <MobileDatePicker {...props} sx={{
-        ".MuiOutlinedInput-root":{
-            borderRadius:"25px"
-        },
-        ".MuiInputBase-root":{
-            background:"#FAEC9E"
-        },
-        width:"100%",
-        "input":{
-            textAlign:"center"
-        }
-      }}/>
-    </LocalizationProvider>
+      <Typography mb={2}>{label}</Typography>
+      <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <MobileDatePicker
+          {...props}
+          sx={{
+            ".MuiOutlinedInput-root": {
+              borderRadius: "25px",
+            },
+            ".MuiInputBase-root": {
+              backgroundColor: bgBold ? "#FFDD24" : "#FAEC9E",
+            },
+            width: "100%",
+            input: {
+              textAlign: left ? "left" : "center",
+            },
+          }}
+        />
+      </LocalizationProvider>
     </>
   );
 };

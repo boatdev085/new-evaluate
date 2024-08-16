@@ -14,13 +14,16 @@ import {
 type Props = {
   label?: string;
   options: { label: string; value: string }[];
+  left?: boolean;
+  placeholder?: string;
+  bgBold?: boolean;
 };
 
 const Select = React.forwardRef<HTMLSelectElement, Props>(function Select(
-  { options, label, ...props },
+  { options, label, left, placeholder, bgBold, ...props },
   ref
 ) {
-  console.log(props)
+  console.log(props);
   const id = useId();
   return (
     <>
@@ -39,17 +42,23 @@ const Select = React.forwardRef<HTMLSelectElement, Props>(function Select(
           },
           ".MuiAutocomplete-inputRoot": {
             borderRadius: "25px",
-            backgroundColor: "#FAEC9E",
+            backgroundColor: bgBold ? "#FFDD24" : "#FAEC9E",
           },
           ".MuiInputBase-input": {
-            textAlign: "center",
+            textAlign: left ? "left" : "center",
           },
           ".MuiOutlinedInput-root": {
             paddingRight: "9px !important",
           },
         }}
         renderInput={(params) => (
-          <TextField hiddenLabel {...params} hidden placeholder="เลือก"  {...props}/>
+          <TextField
+            hiddenLabel
+            {...params}
+            hidden
+            placeholder={placeholder || "เลือก"}
+            {...props}
+          />
         )}
         {...props}
       />
