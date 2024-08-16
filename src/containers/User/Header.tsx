@@ -62,7 +62,7 @@ const Header = (props: Props) => {
                     borderRadius: "20px",
                     maxWidth: "250px",
                   }}
-                  onClick={() => router.push("/user/profile")}
+                  onClick={() => router.push("/user/edit")}
                 >
                   <Typography variant="body2" fontWeight={500} color="black">
                     แก้ไขข้อมูลส่วนตัว

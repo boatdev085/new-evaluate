@@ -2,11 +2,13 @@
 import WrapperLayout from "@/components/Layout";
 import { Button, styled, Typography } from "@mui/material";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type Props = {};
 
 const Header = (props: Props) => {
+  const router = useRouter();
   return (
     <Container>
       <WrapperLayout>
@@ -46,6 +48,7 @@ const Header = (props: Props) => {
                 padding: "13px 66px",
                 borderRadius: "20px",
               }}
+              onClick={() => router.push("/user/edit")}
             >
               <Typography variant="body2" fontWeight={500} color="black">
                 แก้ไขข้อมูลส่วนตัว

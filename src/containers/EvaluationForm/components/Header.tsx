@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { Avatar, Box, Button, Grid, Stack, Typography } from "@mui/material";
 import dayjs from "dayjs";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type Props = {
@@ -27,6 +28,7 @@ const mapType = {
 };
 
 const Header = (props: Props) => {
+  const router = useRouter();
   return (
     <Box
       sx={{
@@ -35,7 +37,7 @@ const Header = (props: Props) => {
         padding: "10px 0 260px 0",
       }}
     >
-      <WrapperLayout sx={{ position: "relative",zIndex: 1 }}>
+      <WrapperLayout sx={{ position: "relative", zIndex: 1 }}>
         <Image
           src="/static/login/logo.png"
           width={160}
@@ -76,6 +78,7 @@ const Header = (props: Props) => {
                     borderRadius: "20px",
                     maxWidth: "250px",
                   }}
+                  onClick={() => router.push("/user/edit")}
                 >
                   <Typography variant="body2" fontWeight={500} color="black">
                     แก้ไขข้อมูลส่วนตัว
