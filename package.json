@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen-openapi:backend_service": "openapi --input ./docs/doc.yml --output ./src/openapi_gen/backend_service"
   },
   "dependencies": {
     "@emotion/cache": "^11.11.0",
@@ -16,8 +17,8 @@
     "@mui/material-nextjs": "^5.15.11",
     "@mui/x-date-pickers": "^7.12.1",
     "chart.js": "^4.4.3",
-    "dayjs": "^1.11.12",
     "chartjs-plugin-datalabels": "^2.2.0",
+    "dayjs": "^1.11.12",
     "next": "14.2.3",
     "next-auth": "^4.24.7",
     "react": "^18",
@@ -31,6 +32,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",
+    "openapi-typescript-codegen": "^0.29.0",
     "typescript": "^5"
   }
 }
