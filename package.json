@@ -6,19 +6,33 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "gen-openapi:backend_service": "openapi --input ./docs/doc.yml --output ./src/openapi_gen/backend_service"
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.19",
+    "@mui/material-nextjs": "^5.15.11",
+    "@mui/x-date-pickers": "^7.12.1",
+    "chart.js": "^4.4.3",
+    "chartjs-plugin-datalabels": "^2.2.0",
+    "dayjs": "^1.11.12",
+    "next": "14.2.3",
+    "next-auth": "^4.24.7",
     "react": "^18",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
-    "next": "14.2.3"
+    "react-hook-form": "^7.52.2"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.2.3"
+    "eslint-config-next": "14.2.3",
+    "openapi-typescript-codegen": "^0.29.0",
+    "typescript": "^5"
   }
 }

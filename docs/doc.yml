@@ -1,0 +1,679 @@
+---
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: Evaluate API
+  description: Spec API The Evaluate module.
+host: http://localhost:9000/
+basePath: "/"
+tags:
+  - name: Authentication
+    description: Endpoints
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  "/api/master/gender":
+    get:
+      tags:
+        - Master
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMaster"
+        "500":
+          description: Internal Server Error
+  "/api/master/family_status":
+    get:
+      tags:
+        - Master
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMaster"
+        "500":
+          description: Internal Server Error
+  "/api/master/education_level":
+    get:
+      tags:
+        - Master
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMaster"
+        "500":
+          description: Internal Server Error
+  "/api/master/province":
+    get:
+      tags:
+        - Master
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMaster"
+        "500":
+          description: Internal Server Error
+  "/api/master/member_type":
+    get:
+      tags:
+        - Master
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMaster"
+        "500":
+          description: Internal Server Error
+  "/api/member/login":
+    post:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/Login"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultLogin"
+        "500":
+          description: Internal Server Error
+  "/api/member/login_with_social":
+    post:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/LoginWithSocial"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultLogin"
+        "500":
+          description: Internal Server Error
+  "/api/member/register":
+    post:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/RegisterMember"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultLogin"
+        "500":
+          description: Internal Server Error
+  "/api/member/register_with_social":
+    post:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/RegisterMemberWithSocial"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultLogin"
+        "500":
+          description: Internal Server Error
+  "/api/member/member":
+    get:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMembers"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+  "/api/member/member_by_id":
+    get:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultMemberDetail"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+  "/api/member/update_profile":
+    put:
+      tags:
+        - Member
+      description: ""
+      parameters:
+        - name: authorization
+          in: header
+          type: string
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/UpdateProfile"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultSuccess"
+        "401":
+          description: Unauthorized
+        "403":
+          description: Forbidden
+        "500":
+          description: Internal Server Error
+  "/api/evaluate/evaluate":
+    get:
+      tags:
+        - Evaluate
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultEvaluates"
+        "500":
+          description: Internal Server Error
+  "/api/evaluate/answer_evaluate":
+    post:
+      tags:
+        - Evaluate
+      description: ""
+      parameters:
+        - name: obj
+          in: body
+          schema:
+            "$ref": "#/definitions/AnswerEvaluate"
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultSuccess"
+        "500":
+          description: Internal Server Error
+    get:
+      tags:
+        - Evaluate
+      description: ""
+      responses:
+        "200":
+          description: OK
+          schema:
+            "$ref": "#/definitions/ResultAnswerEvaluate"
+        "500":
+          description: Internal Server Error
+definitions:
+  Login:
+    type: object
+    properties:
+      email:
+        type: string
+        example: string
+      password:
+        type: string
+        example: string
+  LoginWithSocial:
+    type: object
+    properties:
+      user_id:
+        type: string
+        example: string
+  RegisterMember:
+    type: object
+    properties:
+      firstname:
+        type: string
+        example: string
+      lastname:
+        type: string
+        example: string
+      email:
+        type: string
+        example: string
+      password:
+        type: string
+        example: string
+      member_type_id:
+        type: string
+        example: number
+      is_disclose_info:
+        type: string
+        example: "number => 0 : ไม่ยินยอม, 1 : ยินยอม"
+  RegisterMemberWithSocial:
+    type: object
+    properties:
+      firstname:
+        type: string
+        example: string
+      lastname:
+        type: string
+        example: string
+      user_id:
+        type: string
+        example: string
+      email:
+        type: string
+        example: string
+      picture:
+        type: string
+        example: string
+      login_from:
+        type: string
+        example: string => line, facebook, google
+  Members:
+    type: object
+    properties:
+      id:
+        type: string
+        example: number
+      firstname:
+        type: string
+        example: string
+      lastname:
+        type: string
+        example: string
+      email:
+        type: string
+        example: string
+      role_id:
+        type: string
+        example: number
+      role_name:
+        type: string
+        example: string
+      last_login:
+        type: string
+        example: "string format date : yyyy-MM-dd"
+      picture:
+        type: string
+        example: string
+      birthday:
+        type: string
+        example: "string format date : yyyy-MM-dd"
+      gender_id:
+        type: string
+        example: number
+      gender_name:
+        type: string
+        example: string
+      family_status_id:
+        type: string
+        example: number
+      family_status_name:
+        type: string
+        example: string
+      education_level_id:
+        type: string
+        example: number
+      education_level_name:
+        type: string
+        example: string
+      province_id:
+        type: string
+        example: number
+      province_name:
+        type: string
+        example: string
+      member_type_id:
+        type: string
+        example: number
+      member_type_name:
+        type: string
+        example: string
+      login_from:
+        type: string
+        example: string
+      is_delete:
+        type: string
+        example: number
+      deleted_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+      deleted_by:
+        type: string
+        example: string
+      created_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+      updated_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+  MemberDetail:
+    type: object
+    properties:
+      id:
+        type: string
+        example: number
+      firstname:
+        type: string
+        example: string
+      lastname:
+        type: string
+        example: string
+      email:
+        type: string
+        example: string
+      role_id:
+        type: string
+        example: number
+      role_name:
+        type: string
+        example: string
+      last_login:
+        type: string
+        example: "string format date : yyyy-MM-dd"
+      picture:
+        type: string
+        example: string
+      birthday:
+        type: string
+        example: "string format date : yyyy-MM-dd"
+      gender_id:
+        type: string
+        example: number
+      gender_name:
+        type: string
+        example: string
+      family_status_id:
+        type: string
+        example: number
+      family_status_name:
+        type: string
+        example: string
+      education_level_id:
+        type: string
+        example: number
+      education_level_name:
+        type: string
+        example: string
+      province_id:
+        type: string
+        example: number
+      province_name:
+        type: string
+        example: string
+      member_type_id:
+        type: string
+        example: number
+      member_type_name:
+        type: string
+        example: string
+      login_from:
+        type: string
+        example: string
+      is_delete:
+        type: string
+        example: number
+      deleted_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+      deleted_by:
+        type: string
+        example: string
+      created_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+      updated_date:
+        type: string
+        example: "string format date : yyyy-MM-dd HH:mm:ss"
+  ResultMembers:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: array
+        items:
+          "$ref": "#/definitions/Members"
+  ResultMemberDetail:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: array
+        items:
+          "$ref": "#/definitions/MemberDetail"
+  ResultMemberRole:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: object
+        properties:
+          role_id:
+            type: string
+            example: number
+          role_name:
+            type: string
+            example: string
+  UpdateProfile:
+    type: object
+    properties:
+      password:
+        type: string
+        example: string
+      birthday:
+        type: string
+        example: "string format date : yyyy-MM-dd"
+      gender_id:
+        type: string
+        example: number
+      family_status_id:
+        type: string
+        example: number
+      education_level_id:
+        type: string
+        example: number
+      province_id:
+        type: string
+        example: number
+      member_type_id:
+        type: string
+        example: number
+  UpdateRole:
+    type: object
+    properties:
+      member_id:
+        type: string
+        example: number
+      role_id:
+        type: string
+        example: number
+  ResultLogin:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: object
+        properties:
+          access_token:
+            type: string
+            example: string
+  ResultMaster:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            id:
+              type: string
+              example: number
+            name:
+              type: string
+              example: string
+  Evaluates:
+    type: object
+    properties:
+      evaluate_type_id:
+        type: string
+        example: number
+      evaluate_type_name:
+        type: string
+        example: string
+      evaluate_group_id:
+        type: string
+        example: number
+      evaluate_group_name:
+        type: string
+        example: string
+      evaluate_id:
+        type: string
+        example: number
+      evaluate_name:
+        type: string
+        example: string
+  ResultEvaluates:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: array
+        items:
+          "$ref": "#/definitions/Evaluates"
+  AnswerEvaluate:
+    type: array
+    items:
+      type: object
+      properties:
+        member_id:
+          type: string
+          example: number
+        evaluate_id:
+          type: string
+          example: number
+        answer:
+          type: string
+          example: number
+  Answer:
+    type: array
+    items:
+      type: object
+      properties:
+        member_id:
+          type: string
+          example: number
+        evaluate_type_id:
+          type: string
+          example: number
+        evaluate_type_name:
+          type: string
+          example: string
+        evaluate_group_id:
+          type: string
+          example: number
+        evaluate_group_name:
+          type: string
+          example: string
+        evaluate_id:
+          type: string
+          example: number
+        evaluate_name:
+          type: string
+          example: string
+        answer:
+          type: string
+          example: number
+        answer_date:
+          type: string
+          example: "string format date : yyyy-MM-dd"
+  ResultAnswerEvaluate:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
+      data:
+        type: array
+        items:
+          "$ref": "#/definitions/Answer"
+  ResultSuccess:
+    type: object
+    properties:
+      code:
+        type: number
+        example: 200
+      message:
+        type: string
+        example: Success
