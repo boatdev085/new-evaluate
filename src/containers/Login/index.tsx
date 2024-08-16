@@ -7,10 +7,17 @@ import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type Props = {};
 
 const Login = (props: Props) => {
+  const router = useRouter();
+
+  const handleLogin = () => {
+    console.log("login");
+    router.push("/user");
+  };
   return (
     <Container>
       <Header />
@@ -34,6 +41,7 @@ const Login = (props: Props) => {
               borderRadius: "20px",
               width: "280px",
             }}
+            onClick={handleLogin}
           >
             <Typography variant="body2" fontWeight={500} color="white">
               เข้าสู่ระบบ

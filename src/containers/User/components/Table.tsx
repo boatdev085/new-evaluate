@@ -8,16 +8,14 @@ import {
   TableBody,
   Table as MUITable,
 } from "@mui/material";
+import { useRouter } from "next/navigation";
 import React from "react";
 
 type Props = {};
 
 const Table = (props: Props) => {
-  function createData(
-    no: string,
-    date: number,
-    action: number,
-  ) {
+  const router = useRouter();
+  function createData(no: string, date: number, action: number) {
     return { no, date, action };
   }
   const rows = [
@@ -46,7 +44,10 @@ const Table = (props: Props) => {
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <TableRow key={row.no}>
+            <TableRow
+              key={row.no}
+              onClick={() => router.push(`/user/result/${row.no}`)}
+            >
               <TableCell component="th" scope="row">
                 {row.no}
               </TableCell>
